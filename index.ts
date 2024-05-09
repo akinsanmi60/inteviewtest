@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import allRoutes from './routes/index'
 import swaggerUi from 'swagger-ui-express'
 import swaggerOutput from './swagger_output.json'
+import * as path from 'path';
 
 const CSS_URL =
   "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css"
@@ -15,6 +16,9 @@ const app = express()
 
 app.use(express.json())
 
+app.use(express.static(path.join(__dirname, "public")))
+
+app.use(express.urlencoded({ extended: true }))
 
 app.use(allRoutes)
 
