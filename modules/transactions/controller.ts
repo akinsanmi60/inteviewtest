@@ -14,6 +14,7 @@ import {
 } from "../../types/transaction.type"
 import { generatedId } from "../../utils/generatedId"
 import { accountNameType } from "../../utils/helper"
+import { checkValidation } from "../../utils/checkers"
 
 export const getAllTransaction = async (req: Request, res: Response) => {
   const transactionList = readTransaction()
@@ -41,27 +42,7 @@ export const postTransaction = async (req: Request, res: Response) => {
     })
   }
 
-  if (!accountNameType.includes(accountName)) {
-    return handleResponse({
-      res,
-      status: 400,
-      message: "Wrong AccountName submitted",
-    })
-  }
-  if (!currencyFormat.includes(currency)) {
-    return handleResponse({
-      res,
-      status: 400,
-      message: "Wrong currency submitted",
-    })
-  }
-  if (!typeFormat.includes(type)) {
-    return handleResponse({
-      res,
-      status: 400,
-      message: "Wrong transaction type submitted",
-    })
-  }
+ await checkValidation({accountName, currency, type}, res)
 
   let transactionList = readTransaction()
   const newId = generatedId(transactionList)
@@ -91,7 +72,7 @@ export const postTransaction = async (req: Request, res: Response) => {
   })
 }
 
-export const editTransaction = (req: Request, res: Response) => {
+export const editTransaction = async (req: Request, res: Response) => {
   const { id } = req.params
   const { category, currency, type, accountName, amount } =
     req.body as Partial<ITransaction>
@@ -102,7 +83,10 @@ export const editTransaction = (req: Request, res: Response) => {
          status: 400,
          message: "All fields are required",
        })
-     }
+  }
+  
+ await checkValidation({ accountName, currency, type }, res)
+
 
   let transactionList = readTransaction()
 
