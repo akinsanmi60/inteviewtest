@@ -23,6 +23,22 @@
     "/transaction/get-all-transaction": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -293,6 +309,26 @@
         ],
         "xml": {
           "name": "PostTransactionModel"
+        }
+      },
+      "GetTransactionModel": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "example": "Transaction"
+          },
+          "currency": {
+            "type": "string",
+            "example": "string"
+          }
+        },
+        "required": [
+          "category",
+          "currency"
+        ],
+        "xml": {
+          "name": "GetTransactionModel"
         }
       }
     }

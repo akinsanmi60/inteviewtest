@@ -5,7 +5,7 @@ import swaggerUi from 'swagger-ui-express'
 import swaggerOutput from './swagger_output.json'
 
 const CSS_URL =
-  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css"
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css"
 
 
 dotenv.config()

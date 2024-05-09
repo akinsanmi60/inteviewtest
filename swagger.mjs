@@ -36,6 +36,10 @@ const doc = {
       $type: "string",
       $accountName: "string",
     },
+    GetTransactionModel: {
+      $category: "Transaction",
+      $currency: "string",
+    },
   },
 }
 

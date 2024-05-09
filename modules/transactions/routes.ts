@@ -6,6 +6,7 @@ const router = Router()
 router.get("/get-all-transaction", async (req, res) => {
   /* 
       #swagger.tag = ['Transaction']
+      #swagger.method = 'get'
       #swagger.responses[200] = {
           schema: {
           message: "Transaction is successfully fetched",
