@@ -1,6 +1,6 @@
 import { currencyFormat, typeFormat } from "./../../utils/helper"
 import { Request, Response } from "express"
-import transactionList from "../../../transaction.json"
+import transactionList from "../../transaction.json"
 import {
   modifyTransaction,
   readTransaction,
