@@ -5,7 +5,7 @@ import swaggerUi from 'swagger-ui-express'
 import swaggerOutput from './swagger_output.json'
 
 const CSS_URL =
-  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css"
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css"
 
 
 dotenv.config()
@@ -18,7 +18,7 @@ app.use(express.json())
 
 app.use(allRoutes)
 
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerOutput, { customCss: CSS_URL }))
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerOutput, { customCssUrl: CSS_URL, }))
 
 app.get("/", (req, res) => {
   res.json('kf')
