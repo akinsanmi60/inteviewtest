@@ -12,7 +12,7 @@ const doc = {
   },
   servers: [
     {
-      url: "https://inteviewtest.vercel.app",
+      url: "https://inteviewtest.vercel.app/",
       description: "deployed server link",
     },
     {
