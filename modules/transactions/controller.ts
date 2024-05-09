@@ -1,6 +1,4 @@
-import { currencyFormat, typeFormat } from "./../../utils/helper"
 import { Request, Response } from "express"
-import transactionList from "../../transaction.json"
 import {
   modifyTransaction,
   readTransaction,
@@ -13,7 +11,6 @@ import {
   ITransactionType,
 } from "../../types/transaction.type"
 import { generatedId } from "../../utils/generatedId"
-import { accountNameType } from "../../utils/helper"
 import { checkValidation } from "../../utils/checkers"
 
 export const getAllTransaction = async (req: Request, res: Response) => {
@@ -23,13 +20,13 @@ export const getAllTransaction = async (req: Request, res: Response) => {
 
   if (category) {
     transactionList = transactionList.filter(
-      (transaction) => transaction.category === category
+      (transaction) => transaction.category === String(category).trim()
     )
   }
 
   if (currency) {
     transactionList = transactionList.filter(
-      (transaction) => transaction.currency === currency
+      (transaction) => transaction.currency === String(currency).trim()
     )
   }
 
