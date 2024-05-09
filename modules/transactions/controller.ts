@@ -17,7 +17,20 @@ import { accountNameType } from "../../utils/helper"
 import { checkValidation } from "../../utils/checkers"
 
 export const getAllTransaction = async (req: Request, res: Response) => {
-  const transactionList = readTransaction()
+  const { category, currency } = req.query
+  let transactionList: ITransaction[] = readTransaction()
+
+  if (category) {
+    transactionList = transactionList.filter(
+      (transaction) => transaction.category === category
+    )
+  }
+
+  if (currency) {
+    transactionList = transactionList.filter(
+      (transaction) => transaction.currency === currency
+    )
+  }
 
   return handleResponse({
     res,
@@ -42,7 +55,7 @@ export const postTransaction = async (req: Request, res: Response) => {
     })
   }
 
- await checkValidation({accountName, currency, type}, res)
+  await checkValidation({ accountName, currency, type }, res)
 
   let transactionList = readTransaction()
   const newId = generatedId(transactionList)
@@ -77,16 +90,15 @@ export const editTransaction = async (req: Request, res: Response) => {
   const { category, currency, type, accountName, amount } =
     req.body as Partial<ITransaction>
 
-     if (!category || !currency || !type || !accountName || !amount) {
-       return handleResponse({
-         res,
-         status: 400,
-         message: "All fields are required",
-       })
+  if (!category || !currency || !type || !accountName || !amount) {
+    return handleResponse({
+      res,
+      status: 400,
+      message: "All fields are required",
+    })
   }
-  
- await checkValidation({ accountName, currency, type }, res)
 
+  await checkValidation({ accountName, currency, type }, res)
 
   let transactionList = readTransaction()
 
