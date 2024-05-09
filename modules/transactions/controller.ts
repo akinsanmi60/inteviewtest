@@ -15,7 +15,7 @@ import { checkValidation } from "../../utils/checkers"
 
 export const getAllTransaction = async (req: Request, res: Response) => {
   const { category, currency } = req.query
-  console.log(req.query)
+
   let transactionList: ITransaction[] = readTransaction()
 
   if (category) {
