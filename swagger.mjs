@@ -12,6 +12,10 @@ const doc = {
   },
   servers: [
     {
+      url: "https://inteviewtest.vercel.app",
+      description: "deployed server link",
+    },
+    {
       url: "http://localhost:3500/",
       description: "Local Server",
     },
