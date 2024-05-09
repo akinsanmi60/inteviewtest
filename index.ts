@@ -18,7 +18,15 @@ app.use(express.json())
 
 app.use(allRoutes)
 
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerOutput, { customCssUrl: CSS_URL, }))
+app.use(
+  "/doc",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerOutput, {
+    customCss:
+      ".swagger-ui .opblock .opblock-summary-path-description-wrapper { align-items: center; display: flex; flex-wrap: wrap; gap: 0 10px; padding: 0 10px; width: 100%; }",
+    customCssUrl: CSS_URL,
+  })
+)
 
 app.get("/", (req, res) => {
   res.json('kf')
