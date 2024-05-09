@@ -1,0 +1,302 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Transaction Api",
+    "description": "Api document for my transaction app",
+    "contact": {
+      "name": "akinsanmi Akintunde",
+      "email": "akintunde60@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3500/",
+      "description": "Local Server"
+    }
+  ],
+  "paths": {
+    "/transaction/get-all-transaction": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Transaction is successfully fetched"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "success": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "transaction": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {}
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Transaction is successfully fetched"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "success": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "transaction": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {}
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transaction/create-transaction": {
+      "post": {
+        "summary": "Create Transaction",
+        "description": "Create Transaction",
+        "parameters": [
+          {
+            "name": "Request Body",
+            "in": "body",
+            "description": "Transaction object",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PostTransactionModel"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Transaction is successfully created"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Transaction is successfully created"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "category": {
+                    "example": "any"
+                  },
+                  "currency": {
+                    "example": "any"
+                  },
+                  "type": {
+                    "example": "any"
+                  },
+                  "accountName": {
+                    "example": "any"
+                  },
+                  "amount": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transaction/modify-transaction/{id}": {
+      "put": {
+        "summary": "Create Transaction",
+        "description": "Create Transaction",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Transaction id"
+          },
+          {
+            "name": "Request Body",
+            "in": "body",
+            "description": "Transaction object",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/PostTransactionModel"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Transaction is successfully created"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Transaction is successfully created"
+                    }
+                  },
+                  "xml": {
+                    "name": "main"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "category": {
+                    "example": "any"
+                  },
+                  "currency": {
+                    "example": "any"
+                  },
+                  "type": {
+                    "example": "any"
+                  },
+                  "accountName": {
+                    "example": "any"
+                  },
+                  "amount": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PostTransactionModel": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "example": "Transaction"
+          },
+          "amount": {
+            "type": "string",
+            "example": "number"
+          },
+          "currency": {
+            "type": "string",
+            "example": "string"
+          },
+          "type": {
+            "type": "string",
+            "example": "string"
+          },
+          "accountName": {
+            "type": "string",
+            "example": "string"
+          }
+        },
+        "required": [
+          "category",
+          "amount",
+          "currency",
+          "type",
+          "accountName"
+        ],
+        "xml": {
+          "name": "PostTransactionModel"
+        }
+      }
+    }
+  },
+  "tag": [
+    {
+      "name": "Transaction",
+      "description": "Transaction endpoints"
+    }
+  ]
+}

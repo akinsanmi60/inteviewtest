@@ -1,0 +1,65 @@
+[
+  {
+    "id": "tx1001",
+    "date": "2024-02-20T14:00:00Z",
+    "amount": -45.75,
+    "currency": "USD",
+    "type": "expense",
+    "category": "food",
+    "accountName": "Checking Account"
+  },
+  {
+    "id": "tx1002",
+    "date": "2024-02-18T09:30:00Z",
+    "amount": 1200,
+    "currency": "NGN",
+    "type": "income",
+    "category": "salary",
+    "accountName": "Savings Account"
+  },
+  {
+    "id": "tx1003",
+    "date": "2024-02-15T17:45:00Z",
+    "amount": -99.99,
+    "currency": "EUR",
+    "type": "expense",
+    "category": "electronics",
+    "accountName": "Credit Card"
+  },
+  {
+    "id": "tx1004",
+    "date": "2024-02-14T10:15:00Z",
+    "amount": -15,
+    "currency": "USD",
+    "type": "expense",
+    "category": "transportation",
+    "accountName": "Checking Account"
+  },
+  {
+    "id": "tx1005",
+    "date": "2024-02-13T08:00:00Z",
+    "amount": 850,
+    "currency": "NGN",
+    "type": "income",
+    "category": "freelancing",
+    "accountName": "Savings Account"
+  },
+  {
+    "id": "tx1006",
+    "accountName": "Checking Account",
+    "category": "transportation",
+    "amount": 3000,
+    "currency": "USD",
+    "date": "2024-05-09T15:49:21.114Z",
+    "type": "expense"
+  },
+  {
+    "id": "tx1007",
+    "accountName": "Checking Account",
+    "category": "transportation",
+    "amount": 3000,
+    "currency": "USD",
+    "date": "2024-05-09T15:48:42.035Z",
+    "type": "expense"
+  }
+]
